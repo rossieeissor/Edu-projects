@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" href="css/style.css" media="screen,projection" />
+  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <title>Sign up</title>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <div class="row">
+        <div class="col l8 s4">
+          <h1 class="site-title center-align">Profiler</h1>
+        </div>
+        <div class="col l2 s4">
+          <button class="modal-show deep-purple accent-3 waves-effect waves-light btn" data-modal="#sign-up">sign
+            up</button>
+        </div>
+        <div class="col l2 s4">
+          <button class="modal-show deep-purple accent-3 waves-effect waves-light btn"
+            data-modal="#log-in">login</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="modal-wrap hide">
+    <div class="modal-core modal-sign-up hide" id="sign-up">
+      <div class="form-slider-wrap">
+        <div class="form-slider">
+          <div class="left-50">
+            <form>
+              <div class="row">
+                <div class="input-field col l12">
+                  <input id="signup-name" type="text" name="name" class="validate has-character-counter"
+                    data-length="10">
+                  <label for="signup-name">Name</label>
+                </div>
+                <div class="input-field col l12">
+                  <input id="signup-pass" type="password" name="pass" class="validate">
+                  <label for="signup-pass">Password</label>
+                </div>
+                <div class="input-field col l12">
+                  <input id="signup-email" type="email" name="email" class="validate">
+                  <label for="signup-email">Email</label>
+                </div>
+                <div class="input-field col l6 s6">
+                  <input id="signup-birthday" type="text" class="datepicker">
+                  <label class="active" for="signup-birthday">Birthday</label>
+                </div>
+
+                <div class="col l6 s3">
+                  <p>Sex:</p>
+                  <p>
+                    <label>
+                      <input type="radio" class="with-gap" name="sex" value="male" checked />
+                      <span>male</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      <input type="radio" class="with-gap" name="sex" value="female" />
+                      <span>female</span>
+                    </label>
+                  </p>
+                  <p>
+                    <label>
+                      <input type="radio" class="with-gap" name="sex" value="other" />
+                      <span>other</span>
+                    </label>
+                  </p>
+                </div>
+                <div class="col l12">
+                  <pre class="nice-font"> By pressing SIGN UP you accept our 
+ <span class="terms read-terms">Terms of Service</span></pre>
+                </div>
+                <div class="col l12 center-align">
+                  <button type="submit" id="signup-submit"
+                    class="deep-purple accent-3 waves-effect waves-light btn">Sign
+                    up</button>
+                </div>
+              </div>
+            </form>
+            <button class="modal-core-close btn-floating btn-small waves-effect waves-light deep-purple accent-3"
+              data-modal="#sign-up"><i class="material-icons">close</i></button>
+          </div>
+          <div class="right-50">
+            <p class="back-terms center-align">Return</p>
+            <h2 class="center-align terms-header">Terms of Service</h2>
+            An HTTP cookie is data stored on a user's computer that assists in automated access to websites or web
+            features, or other state information required in complex web sites. It may also be used for user-tracking by
+            storing special usage history data in a cookie, and such cookies — for example, those used by Google
+            Analytics
+            — are called tracking cookies. Cookies are a common concern in the field of Internet privacy. Although
+            website
+            developers most commonly use cookies for legitimate technical purposes, cases of abuse occur. In 2009, two
+            researchers noted that social networking profiles could be connected to cookies, allowing the social
+            networking profile to be connected to browsing habits. In the past, websites have not generally made the
+            user
+            explicitly aware of the storing of cookies, however tracking cookies and especially third-party tracking
+            cookies are commonly used as ways to compile long-term records of individuals' browsing histories — a
+            privacy
+            concern that prompted European and US lawmakers to take action in 2011. Cookies can also have implications
+            for
+            computer forensics. In past years, most computer users were not completely aware of cookies, but users have
+            become conscious of possible detrimental effects of Internet cookies: a recent study done has shown that 58%
+            of users have deleted cookies from their computer at least once, and that 39% of users delete cookies from
+            their computer every month. Since cookies are advertisers' main way of targeting potential customers, and
+            some
+            customers are deleting cookies, some advertisers started to use persistent Flash cookies and zombie cookies,
+            but modern browsers and anti-malware software can now block or detect and remove such cookies.
+            <p class="back-terms center-align">Return</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-wrap hide">
+    <div class="modal-core hide" id="log-in">
+      <form>
+        <div class="row">
+          <div class="input-field col l12">
+            <input id="login-email" type="email" name="email" class="validate">
+            <label for="login-email">Email</label>
+          </div>
+          <div class="input-field col l12">
+            <input id="login-pass" type="password" name="pass" class="validate">
+            <label for="login-pass">Password</label>
+          </div>
+          <div class="col l12 right-align">
+            <button id="login-submit" class="deep-purple accent-3 waves-effect waves-light btn">Login</button>
+          </div>
+        </div>
+      </form>
+      <button class="modal-core-close btn-floating btn-small waves-effect waves-light deep-purple accent-3"
+        data-modal="#log-in"><i class="material-icons">close</i></button>
+    </div>
+  </div>
+  <script src="script/ajax.js"></script>
+  <script src="script/script.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script src="script/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+.user-cabinet-header {
+  font-size: 20px;
+}
+
+.site-title {
+  font-size: 24px;
+  margin: 0;
+}
+
+.site-header {
+  border-bottom: 1px solid #651fff;
+  padding: 20px 0 10px 0;
+}
+
+.modal-wrap {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: stretch;
+  align-items: center;
+  z-index: 10;
+}
+
+.modal-core {
+  position: relative;
+  width: 250px;
+  border: 1px solid #651fff;
+  border-radius: 12px;
+  box-shadow: 1px 1px 10px black;
+  background: #fff;
+  padding: 10px;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: auto;
+}
+
+.modal-sign-up {
+  width: 350px;
+}
+
+.modal-core-close {
+  position: absolute;
+  right: -17px;
+  top: -17px;
+}
+
+.form-slider {
+  width: 680px;
+  height: 570px;
+  margin-left: 0px;
+  transition: all ease 1s;
+}
+
+.left-50,
+.right-50 {
+  width: 50%;
+  float: left;
+  min-height: 300px;
+  padding: 10px;
+}
+.right-50 {
+  min-height: 300px;
+  max-height: 570px;
+  overflow-y: scroll;
+}
+
+.read-terms,
+.back-terms {
+  cursor: pointer;
+  color: blue;
+  text-decoration: underline;
+}
+
+.form-slider-wrap {
+  overflow: hidden;
+}
+
+.terms-header {
+  font-size: 24px;
+}
+
+.nice-font {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+
+.input-field input[type="text"]:focus {
+  border-bottom: 1px solid #651fff !important;
+  box-shadow: 0 1px 0 0 #651fff !important;
+}
+
+.input-field input[type="text"]:focus + label {
+  color: #651fff !important;
+}
+
+.input-field input[type="email"]:focus {
+  border-bottom: 1px solid #651fff !important;
+  box-shadow: 0 1px 0 0 #651fff !important;
+}
+
+.input-field input[type="email"]:focus + label {
+  color: #651fff !important;
+}
+
+.input-field input[type="password"]:focus {
+  border-bottom: 1px solid #651fff !important;
+  box-shadow: 0 1px 0 0 #651fff !important;
+}
+
+.input-field input[type="password"]:focus + label {
+  color: #651fff !important;
+}
+
+[type="radio"].with-gap:checked + span:after {
+  background-color: #651fff !important;
+}
+
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+  border: 2px solid #651fff !important;
+}
