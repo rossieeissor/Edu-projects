@@ -28,10 +28,35 @@ function getUserData(result) {
 
 document.querySelector("#update").onclick = function (event) {
   event.preventDefault();
+  let nameDOM = document.querySelector("#update-name");
+  let passDOM = document.querySelector("#update-pass");
+  let birthdayDOM = document.querySelector("#update-birthday");
   let name = document.querySelector("#update-name").value;
   let pass = document.querySelector("#update-pass").value;
   let birthday = document.querySelector("#update-birthday").value;
   let sex = document.querySelector('input[name="sex"]:checked').value;
+
+  if (nameDOM.classList.contains("invalid")) {
+    M.toast({
+      html: "Name may only contain from 3 to 10 alphabetical letters",
+      classes: "red darken-4",
+    });
+  }
+
+  if (passDOM.classList.contains("invalid")) {
+    M.toast({
+      html: "Password may only contain from 5 to 15 characters",
+      classes: "red darken-4",
+    });
+  }
+
+  if (birthdayDOM.classList.contains("invalid")) {
+    M.toast({
+      html: 'Please enter a date in the "dd.mm.yyyy" format',
+      classes: "red darken-4",
+    });
+  }
+
   let data = {
     email: userEmail,
     name: name,
@@ -39,7 +64,15 @@ document.querySelector("#update").onclick = function (event) {
     birthday: birthday,
     sex: sex,
   };
-  ajax("core/update_user_data.php", "post", updateUserData, data);
+  if (
+    !nameDOM.classList.contains("invalid") &&
+    !passDOM.classList.contains("invalid") &&
+    !birthdayDOM.classList.contains("invalid")
+  ) {
+    ajax("core/update_user_data.php", "post", updateUserData, data);
+  } else {
+    return false;
+  }
 };
 
 function updateUserData(result) {
@@ -70,9 +103,15 @@ document.querySelector("#edit").onclick = function () {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
+  let date = new Date();
+  let customDate = new Date();
+  customDate.setFullYear(date.getFullYear() - 5);
   let elems = document.querySelectorAll(".datepicker");
   let options = {
     format: "dd.mm.yyyy",
+    yearRange: [1930, date.getFullYear()],
+    maxDate: customDate,
+    defaultDate: customDate,
   };
   let instances = M.Datepicker.init(elems, options);
 });

@@ -7,10 +7,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
   let date = new Date();
+  let customDate = new Date();
+  customDate.setFullYear(date.getFullYear() - 5);
   let elems = document.querySelectorAll(".datepicker");
   let options = {
     format: "dd.mm.yyyy",
-    yearRange: [1910, date.getFullYear()],
+    yearRange: [1930, date.getFullYear()],
+    maxDate: customDate,
+    defaultDate: customDate,
   };
   let instances = M.Datepicker.init(elems, options);
 });
@@ -27,7 +31,7 @@ document.querySelectorAll(".modal-wrap").forEach(function (element) {
   element.onclick = closeModalWrap;
 });
 
-document.querySelectorAll(".back-terms").forEach((e) =>
+document.querySelectorAll(".back-terms").forEach(e =>
   e.addEventListener("click", function () {
     document.querySelector(".form-slider").style.marginLeft = "0px";
   })
@@ -58,10 +62,10 @@ function closeModalByEscape(e) {
   if (e.key === "Escape") {
     document
       .querySelectorAll(".modal-wrap")
-      .forEach((e) => e.classList.add("hide"));
+      .forEach(e => e.classList.add("hide"));
     document
       .querySelectorAll(".modal-core")
-      .forEach((e) => e.classList.add("hide"));
+      .forEach(e => e.classList.add("hide"));
     document.removeEventListener("keydown", closeModalByEscape);
   }
 }

@@ -40,16 +40,16 @@ if (!isset($_COOKIE['email']) or trim($_COOKIE['email']) == '') {
       <div class="col l6">
         <div class="row">
           <div class="input-field col s6">
-            <input id="update-name" type="text" class="validate has-character-counter" data-length="10" disabled>
+            <input id="update-name" type="text" class="validate has-character-counter" data-length="10" minlength="3" pattern="[A-za-z]{3,10}" disabled>
             <label class="active" for="update-name">Name</label>
           </div>
 
           <div class="input-field col s6">
-            <input id="update-pass" type="password" class="validate has-character-counter" data-length="10" disabled>
+            <input id="update-pass" type="password" class="validate" minlength="5" maxlength="15" disabled>
             <label class="active" for="update-pass">Password</label>
           </div>
           <div class="input-field col s12">
-            <input id="update-birthday" type="text" class="datepicker" disabled>
+            <input id="update-birthday" type="text" class="datepicker validate" pattern="^(?:(?:31(\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$" disabled>
             <label class="active" for="update-birthday">Birthday</label>
           </div>
         </div>

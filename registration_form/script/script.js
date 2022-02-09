@@ -1,16 +1,43 @@
 document.querySelector("#signup-submit").onclick = function (event) {
   event.preventDefault();
+  let nameDOM = document.querySelector("#signup-name");
+  let passDOM = document.querySelector("#signup-pass");
+  let emailDOM = document.querySelector("#signup-email");
+  let birthdayDOM = document.querySelector("#signup-birthday");
   let name = document.querySelector("#signup-name").value;
   let pass = document.querySelector("#signup-pass").value;
   let email = document.querySelector("#signup-email").value;
   let birthday = document.querySelector("#signup-birthday").value;
-  let sex = document.querySelectorAll("[name=sex]");
-  for (let i of sex) {
-    if (i.checked) {
-      sex = i.value;
-      break;
-    }
+  let sex = document.querySelector('input[name="sex"]:checked').value;
+
+  if (nameDOM.classList.contains("invalid")) {
+    M.toast({
+      html: "Name may only contain from 3 to 10 alphabetical letters",
+      classes: "red darken-4",
+    });
   }
+
+  if (passDOM.classList.contains("invalid")) {
+    M.toast({
+      html: "Password may only contain from 5 to 15 characters",
+      classes: "red darken-4",
+    });
+  }
+
+  if (emailDOM.classList.contains("invalid")) {
+    M.toast({
+      html: "Email is invalid",
+      classes: "red darken-4",
+    });
+  }
+
+  if (birthdayDOM.classList.contains("invalid")) {
+    M.toast({
+      html: 'Please enter a date in the "dd.mm.yyyy" format',
+      classes: "red darken-4",
+    });
+  }
+
   let data = {
     name: name,
     pass: pass,
@@ -18,7 +45,16 @@ document.querySelector("#signup-submit").onclick = function (event) {
     birthday: birthday,
     sex: sex,
   };
-  ajax("core/signup.php", "post", signup, data);
+  if (
+    !nameDOM.classList.contains("invalid") &&
+    !passDOM.classList.contains("invalid") &&
+    !emailDOM.classList.contains("invalid") &&
+    !birthdayDOM.classList.contains("invalid")
+  ) {
+    ajax("core/signup.php", "post", signup, data);
+  } else {
+    return false;
+  }
 };
 
 function signup(result) {
