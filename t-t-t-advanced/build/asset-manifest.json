@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/t-t-t-advanced/build/static/css/main.22941023.css",
+    "main.js": "/t-t-t-advanced/build/static/js/main.13ebb27a.js",
+    "index.html": "/t-t-t-advanced/build/index.html",
+    "main.22941023.css.map": "/t-t-t-advanced/build/static/css/main.22941023.css.map",
+    "main.13ebb27a.js.map": "/t-t-t-advanced/build/static/js/main.13ebb27a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22941023.css",
+    "static/js/main.13ebb27a.js"
+  ]
+}
