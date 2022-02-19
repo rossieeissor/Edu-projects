@@ -50,10 +50,12 @@ class Game extends React.Component {
       history: [
         {
           squares: Array(9).fill(null),
-        },
+          col: null,
+          row: null,
+        }
       ],
       stepNumber: 0,
-      xIsNext: true,
+      xIsNext: true
     };
   }
 
@@ -61,25 +63,30 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    const col = [0, 3, 6].includes(i) ? 1 : [1, 4, 7].includes(i) ? 2 : 3;
+    const row = [0, 1, 2].includes(i) ? 1 : [3, 4, 5].includes(i) ? 2 : 3;
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = this.state.xIsNext ? "X" : "O";
+    
     this.setState({
       history: history.concat([
         {
           squares: squares,
-        },
+          col: col,
+          row: row,
+        }
       ]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext,
+      xIsNext: !this.state.xIsNext
     });
   }
 
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: step % 2 === 0,
+      xIsNext: (step % 2) === 0
     });
   }
 
@@ -87,9 +94,12 @@ class Game extends React.Component {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
     const winner = calculateWinner(current.squares);
+    console.log(history)
 
     const moves = history.map((step, move) => {
-      const desc = move ? "Go to move #" + move : "Go to game start";
+      const desc = move ?
+        `Go to move #${move}. col ${step.col} row ${step.row}` :
+        'Go to game start';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -107,7 +117,10 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
+          <Board
+            squares={current.squares}
+            onClick={i => this.handleClick(i)}
+          />
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -131,7 +144,7 @@ function calculateWinner(squares) {
     [1, 4, 7],
     [2, 5, 8],
     [0, 4, 8],
-    [2, 4, 6],
+    [2, 4, 6]
   ];
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
