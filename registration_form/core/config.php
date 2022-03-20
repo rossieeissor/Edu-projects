@@ -1,6 +1,6 @@
 <?php
 
-$servername = "104.154.109.195";
-$username = "root";
-$password = "passforroot";
-$dbname = "user_cabinet";
+$servername = "sql3.freemysqlhosting.net";
+$username = "sql3480307";
+$password = "bwNeb5WHjz";
+$dbname = "sql3480307";
