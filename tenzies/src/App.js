@@ -40,7 +40,7 @@ export default function App() {
       const bestSeconds = bestTime.min * 60 + bestTime.sec;
       const newSeconds = minutes * 60 + seconds;
       if (
-        newSeconds < bestSeconds ||
+        (newSeconds < bestSeconds && (minutes !== 0 || seconds !== 0)) ||
         (JSON.stringify(bestTime) === "{}" && (minutes !== 0 || seconds !== 0))
       ) {
         localStorage.setItem(
