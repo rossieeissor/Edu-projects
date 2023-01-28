@@ -1,1 +1,1 @@
-### Educational projects continuously deploy on [http://www.showmeyourskill.ml/](http://www.showmeyourskill.ml/)
+### Educational projects deploy [HERE](https://profound-tarsier-cd855d.netlify.app/)
